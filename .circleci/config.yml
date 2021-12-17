@@ -6,7 +6,7 @@ jobs:
    steps:
       - run:
           command: |
-           git clone --depth=1 https://github.com/Alone0316/kernel_oneplus_ebba.git --single-branch main
+           git clone --depth=1 https://github.com/Alone0316/kernel_oneplus_ebba.git --single-branch ebba
            cd ebba
            wget https://raw.githubusercontent.com/Hunter-commits/ci/ebba/build.sh
            bash build.sh
