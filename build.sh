@@ -59,7 +59,7 @@ DEVICE="OnePlus Nord CE 5G"
 CODENAME="ebba"
 KERNEL_NAME="FussionKernel"
 
-DEFCONFIG="lito-perf_defconfig"
+DEFCONFIG="lito_defconfig"
 
 AnyKernel="https://github.com/Hunter-commits/anykernel.git"
 AnyKernelbranch="master"
