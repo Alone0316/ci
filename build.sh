@@ -55,11 +55,11 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 CHATID="-1001283860476"
 API_BOT="2049436092:AAGobgTgnXbNbeYgG7RdiPINcCnDhxbP8XU"
 
-DEVICE="Redmi Note 4/4X"
-CODENAME="mido"
+DEVICE="Motorola Moto G5 Plus"
+CODENAME="potter"
 KERNEL_NAME="FussionKernel"
 
-DEFCONFIG="mido_defconfig"
+DEFCONFIG="potter_defconfig"
 
 AnyKernel="https://github.com/Hunter-commits/anykernel.git"
 AnyKernelbranch="master"
