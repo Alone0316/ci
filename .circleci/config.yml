@@ -6,7 +6,7 @@ jobs:
    steps:
       - run:
           command: |
-           git clone --depth=1 https://github.com/Alone0316/kernel_mido.git -b sapphire_trial mido
+           git clone --depth=1 https://github.com/Alone0316/kernel_mido.git -b sapphire mido
            cd mido
            wget https://raw.githubusercontent.com/Alone0316/ci/main/build.sh
            bash build.sh
