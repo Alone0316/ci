@@ -58,7 +58,7 @@ API_BOT="2049436092:AAGobgTgnXbNbeYgG7RdiPINcCnDhxbP8XU"
 DEVICE="Redmi Note 4/4X"
 CODENAME="mido"
 KERNEL_NAME="FussionKernel"
-KERNEL_CODE="Sapphire"
+KERNEL_CODE="OC"
 
 DEFCONFIG="mido_defconfig"
 
