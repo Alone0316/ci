@@ -182,6 +182,7 @@ fi
 
 mkdir -p out
 
+make oldconfig
 make O=out clean && make O=out mrproper
 make "$DEFCONFIG" O=out
 
