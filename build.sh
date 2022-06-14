@@ -59,7 +59,7 @@ DEVICE="Samsung A52S"
 CODENAME="a52sxq"
 KERNEL_NAME="FussionKernel"
 
-DEFCONFIG="vendor/a52sxq_chn_tw_defconfig"
+DEFCONFIG="a52sxq_chn_tw_defconfig"
 
 AnyKernel="https://github.com/Hunter-commits/anykernel.git"
 AnyKernelbranch="master"
@@ -171,6 +171,14 @@ export HEADER_ARCH=arm64
 
 export KBUILD_BUILD_HOST="$HOSST"
 export KBUILD_BUILD_USER="$USEER"
+
+
+if [[ $1 = "-r" || $1 = "--regen" ]]; then
+     make $MAKE_PARAMS $DEFCONFIG savedefconfig
+     cp out/defconfig arch/arm64/configs/$DEFCONFIG
+     echo -e "\nSuccessfully regenerated defconfig at $DEFCONFIG"
+     exit
+fi
 
 mkdir -p out
 
