@@ -8,7 +8,7 @@ jobs:
           command: |
            git clone --depth=1 https://github.com/Alone0316/kernel_samsung_a52sxq.git --single-branch a52sxq
            cd a52sxq
-           wget https://raw.githubusercontent.com/Hunter-commits/ci/main/build.sh
+           wget https://raw.githubusercontent.com/Alone0316/ci/a52sxq/build.sh
            bash build.sh
 workflows:
   version: 2.1
