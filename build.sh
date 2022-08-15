@@ -159,7 +159,7 @@ End=$(date +"%s")
 Diff=$(($End - $Start))
 }
 
-export IMG="$MY_DIR"/out/arch/arm64/boot/Image.gz-dtb
+export IMG="$MY_DIR"/out/arch/arm64/boot/Image
 
 # Let's start
 
