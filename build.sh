@@ -210,8 +210,12 @@ DATE=$(date +"%Y%m%d-%H%M%S")
                 git clone "$AnyKernel" --single-branch -b "$AnyKernelbranch" zip
                 echo -e "$yellow << making kernel zip >> \n $white"
                 cp -r "$IMG" zip/
+                cp $(find out/modules/lib/modules/5.4* -name '*.ko') zip/modules/vendor/lib/modules/
+                cp out/modules/lib/modules/5.4*/modules.{alias,dep,softdep} zip/modules/vendor/lib/modules
+                cp out/modules/lib/modules/5.4*/modules.order zip/modules/vendor/lib/modules/modules.load
+                sed -i 's/\(kernel\/[^: ]*\/\)\([^: ]*\.ko\)/\/vendor\/lib\/modules\/\2/g' zip/modules/vendor/lib/modules/modules.dep
+                sed -i 's/.*\///g' zip/modules/vendor/lib/modules/modules.load
                 cd zip
-                mv Image.gz-dtb zImage
                 export ZIP="$KERNEL_NAME"-"$CODENAME"-"$DATE"
                 zip -r "$ZIP" *
                 curl -sLo zipsigner-3.0.jar https://raw.githubusercontent.com/Hunter-commits/AnyKernel/a52sxq/zipsigner-3.0.jar
