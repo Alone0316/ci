@@ -192,7 +192,7 @@ tg_post_msg "<code>Building Image.gz-dtb</code>" "$CHATID"
 build_kernel || error=true
 
 DATE=$(date +"%Y%m%d-%H%M%S")
-KERVER=$(make kernelversion)
+#KERVER=$(make kernelversion)
 
         if [ -f "$IMG" ]; then
                 echo -e "$green << Build completed in $(($Diff / 60)) minutes and $(($Diff % 60)) seconds >> \n $white"
