@@ -182,9 +182,8 @@ fi
 
 mkdir -p out
 
-make oldconfig
-make O=out clean && make O=out mrproper
-make "$DEFCONFIG" O=out
+make -C $(pwd) O=$(pwd)/out DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y CLANG_TRIPLE=aarch64-linux-gnu- vendor/a52sxq_chn_tw_defconfig
+make -C $(pwd) O=$(pwd)/out DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y CLANG_TRIPLE=aarch64-linux-gnu-
 
 echo -e "$yellow << compiling the kernel >> \n $white"
 tg_post_msg "<code>Building Image.gz-dtb</code>" "$CHATID"
