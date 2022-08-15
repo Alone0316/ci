@@ -174,7 +174,7 @@ export KBUILD_BUILD_USER="$USEER"
 
 if [[ $1 = "-r" || $1 = "--regen" ]]; then
      make $MAKE_PARAMS $DEFCONFIG savedefconfig
-     cp out/defconfig arch/arm64/configs/$DEFCONFIG
+     cp out/defconfig arch/arm64/configs/vendor/$DEFCONFIG
      echo -e "\nSuccessfully regenerated defconfig at $DEFCONFIG"
      exit
 fi
