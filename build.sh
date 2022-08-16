@@ -187,7 +187,7 @@ make -C $(pwd) O=$(pwd)/out DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERL
 make -C $(pwd) O=$(pwd)/out DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y CLANG_TRIPLE=aarch64-linux-gnu-
 
 echo -e "$yellow << compiling the kernel >> \n $white"
-tg_post_msg "<code>Building Image.gz-dtb</code>" "$CHATID"
+tg_post_msg "<code>Building Kernel Image</code>" "$CHATID"
 
 build_kernel || error=true
 
