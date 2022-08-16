@@ -210,6 +210,7 @@ DATE=$(date +"%Y%m%d-%H%M%S")
                 git clone "$AnyKernel" --single-branch -b "$AnyKernelbranch" zip
                 echo -e "$yellow << making kernel zip >> \n $white"
                 cp -r "$IMG" zip/
+		cd drivers/*/ && ls
                 cp $(find drivers/* -name '*.ko') zip/modules/vendor/lib/modules/
                 cp drivers/*/modules.{alias,dep,softdep} zip/modules/vendor/lib/modules
                 cp drivers/*/modules/lib/modules/5.4*/modules.order zip/modules/vendor/lib/modules/modules.load
