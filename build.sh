@@ -210,7 +210,7 @@ DATE=$(date +"%Y%m%d-%H%M%S")
                 git clone "$AnyKernel" --single-branch -b "$AnyKernelbranch" zip
                 echo -e "$yellow << making kernel zip >> \n $white"
                 cp -r "$IMG" zip/
-                cp $(find out/modules/ -name '*.ko') zip/modules/vendor/lib/modules/
+                cp $(find out/modules/* -name '*.ko') zip/modules/vendor/lib/modules/
                 cp out/modules/modules.{alias,dep,softdep} zip/modules/vendor/lib/modules
                 cp out/modules/modules.order zip/modules/vendor/lib/modules/modules.load
                 sed -i 's/\(kernel\/[^: ]*\/\)\([^: ]*\.ko\)/\/vendor\/lib\/modules\/\2/g' zip/modules/vendor/lib/modules/modules.dep
