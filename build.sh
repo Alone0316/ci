@@ -184,7 +184,7 @@ mkdir -p out
 #make O=out clean && make O=out mrproper
 
 make -C $(pwd) O=$(pwd)/out DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y CLANG_TRIPLE=aarch64-linux-gnu- vendor/a52sxq_chn_tw_defconfig
-make -C $(pwd) O=$(pwd)/out DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y CLANG_TRIPLE=aarch64-linux-gnu-
+make -C $(pwd) O=$(pwd)/out DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y CLANG_TRIPLE=aarch64-linux-gnu- INSTALL_MOD_PATH=modules INSTALL_MOD_STRIP=1 modules_install
 
 echo -e "$yellow << compiling the kernel >> \n $white"
 tg_post_msg "<code>Building Kernel Image</code>" "$CHATID"
@@ -210,9 +210,9 @@ DATE=$(date +"%Y%m%d-%H%M%S")
                 git clone "$AnyKernel" --single-branch -b "$AnyKernelbranch" zip
                 echo -e "$yellow << making kernel zip >> \n $white"
                 cp -r "$IMG" zip/
-                cp drivers/*/*.ko zip/modules/vendor/lib/modules/
-                cp drivers/*/*/modules.{alias,dep,softdep} zip/modules/vendor/lib/modules
-                cp drivers/*/*/modules.order zip/modules/vendor/lib/modules/modules.load
+                cp $(find out/modules/lib/modules/5.4* -name '*.ko') zip/modules/vendor/lib/modules/
+                cp out/modules/lib/modules/5.4*/modules.{alias,dep,softdep} zip/modules/vendor/lib/modules
+                cp out/modules/lib/modules/5.4*/modules.order zip/modules/vendor/lib/modules/modules.load
                 sed -i 's/\(kernel\/[^: ]*\/\)\([^: ]*\.ko\)/\/vendor\/lib\/modules\/\2/g' zip/modules/vendor/lib/modules/modules.dep
                 sed -i 's/.*\///g' zip/modules/vendor/lib/modules/modules.load
                 cd zip
