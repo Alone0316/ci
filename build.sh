@@ -183,8 +183,8 @@ mkdir -p out
 
 #make O=out clean && make O=out mrproper
 
-make -C $(pwd) O=$(pwd)/out DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y CLANG_TRIPLE=aarch64-linux-gnu- vendor/a52sxq_chn_tw_defconfig
-make -C $(pwd) O=$(pwd)/out DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y CLANG_TRIPLE=aarch64-linux-gnu- INSTALL_MOD_PATH=modules INSTALL_MOD_STRIP=1 modules_install
+make -C $(pwd) O=$(pwd)/out DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y CLANG_TRIPLE=aarch64-linux-gnu- INSTALL_MOD_PATH=$(pwd)/out/modules INSTALL_MOD_STRIP=1 modules_install vendor/a52sxq_chn_tw_defconfig
+make -C $(pwd) O=$(pwd)/out DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y CLANG_TRIPLE=aarch64-linux-gnu- INSTALL_MOD_PATH=$(pwd)/out/modules INSTALL_MOD_STRIP=1 modules_install
 
 echo -e "$yellow << compiling the kernel >> \n $white"
 tg_post_msg "<code>Building Kernel Image</code>" "$CHATID"
