@@ -52,14 +52,12 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 #
 # TOOLCHAIN = the toolchain u want to use "gcc/clang"
 
-CHATID="-1001283860476"
-API_BOT="2049436092:AAFV-TxprsH_aC3_XBl-6uhgc9MToKhqUCQ"
 
 DEVICE="Samsung A52S"
 CODENAME="a52sxq"
 KERNEL_NAME="FussionKernel"
 
-DEFCONFIG="a52sxq_chn_tw_defconfig"
+DEFCONFIG="mesa_a52sxq_eur_open_defconfig"
 
 AnyKernel="https://github.com/Hunter-commits/anykernel.git"
 AnyKernelbranch="a52sxq"
@@ -69,8 +67,8 @@ USEER="Alone0316"
 TOOLCHAIN="clang"
 
 # setup telegram env
-export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
-export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
+export BOT_MSG_URL="https://api.telegram.org/bot$TOKEN/sendMessage"
+export BOT_BUILD_URL="https://api.telegram.org/bot$TOKEN/sendDocument"
 
 tg_post_msg() {
         curl -s -X POST "$BOT_MSG_URL" -d chat_id="$2" \
@@ -183,7 +181,7 @@ mkdir -p out
 
 #make O=out clean && make O=out mrproper
 
-make -C $(pwd) O=$(pwd)/out DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y CLANG_TRIPLE=aarch64-linux-gnu- INSTALL_MOD_PATH=$(pwd)/out/modules INSTALL_MOD_STRIP=1 modules_install vendor/a52sxq_chn_tw_defconfig
+make -C $(pwd) O=$(pwd)/out DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y CLANG_TRIPLE=aarch64-linux-gnu- INSTALL_MOD_PATH=$(pwd)/out/modules INSTALL_MOD_STRIP=1 modules_install vendor/mesa_a52sxq_eur_open_defconfig
 make -C $(pwd) O=$(pwd)/out DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y CLANG_TRIPLE=aarch64-linux-gnu- INSTALL_MOD_PATH=$(pwd)/out/modules INSTALL_MOD_STRIP=1 modules_install
 
 echo -e "$yellow << compiling the kernel >> \n $white"
