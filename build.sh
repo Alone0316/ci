@@ -57,7 +57,7 @@ DEVICE="Samsung A52S"
 CODENAME="a52sxq"
 KERNEL_NAME="FussionKernel"
 
-DEFCONFIG="mesa_a52sxq_eur_open_defconfig"
+DEFCONFIG="vendor/mesa_a52sxq_eur_open_defconfig"
 
 AnyKernel="https://github.com/Hunter-commits/anykernel.git"
 AnyKernelbranch="a52sxq"
